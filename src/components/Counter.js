@@ -6,6 +6,7 @@ export const Counter = (showperpage, onpaginationchange) => {
   useEffect(() => {
     const value = showperpage * counter;
     // onpaginationchange(value - showperpage, value);
+    // ciomment
   }, [counter]);
   return (
     <Flex justifyContent="space-between">
