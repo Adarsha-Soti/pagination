@@ -8,6 +8,7 @@ import {
   Divider,
   Center,
   Button,
+  Flex,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import "./App.css";
@@ -27,9 +28,10 @@ function App() {
     start: 0,
     end: showperpage,
   });
-  // onpaginationchange = (start, end) => {
-  //   setPagination({ start: start, end: end });
-  // };
+  let onpaginationchange = (pervious, next) => {
+    setPagination({ start: pervious, end: next });
+  };
+  console.log(pagination.start, pagination.end, data.length);
 
   return (
     <Center
@@ -58,7 +60,7 @@ function App() {
         <Grid templateColumns="repeat(3, 1fr)" gap={6} marginTop={20}>
           {data.slice(pagination.start, pagination.end).map((item) => {
             return (
-              <HStack id={item?.id}>
+              <HStack>
                 <Box
                   placeItems="center"
                   boxShadow="2xl"
@@ -98,7 +100,8 @@ function App() {
         <Box marginTop={10}>
           <Counter
             showperpage={showperpage}
-            // onpaginationchange={onpaginationchange}
+            onpaginationchange={onpaginationchange}
+            data={data}
           />
         </Box>
       </Box>
