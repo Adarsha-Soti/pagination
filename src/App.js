@@ -21,6 +21,7 @@ function App() {
       .then((response) => response.json())
       .then((response) => setData(response));
   }, []);
+  const datalength = data.length;
 
   let [showperpage, setShowperpage] = useState(3);
 
@@ -101,7 +102,7 @@ function App() {
           <Counter
             showperpage={showperpage}
             onpaginationchange={onpaginationchange}
-            data={data}
+            data={datalength}
           />
         </Box>
       </Box>
